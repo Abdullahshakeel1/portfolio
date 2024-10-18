@@ -75,7 +75,7 @@ const Projects = () => {
                   </div>
                   <a
                     className="ad-btn"
-                    href="https://e-com-full-stack-client.vercel.app"
+                    href="https://chat-app-vp7f.vercel.app"
                   >
                     View
                   </a>

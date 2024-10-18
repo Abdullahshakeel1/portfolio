@@ -10,20 +10,23 @@ const Contact = () => {
   const [name, setname] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
+  const backend = "https://portfolio-sigma-lyart-48.vercel.app";
+  
 
-  //handle submit button
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (!name || !email || !msg) {
-        toast.error("PLease Provide all fields");
+        toast.error("Please provide all fields");
+        return;
       }
-      const res = await axios.post("/api/v1/portfolio/sendEmail", {
+  
+      const res = await axios.post(`${backend}/api/v1/portfolio/sendEmail`, {
         name,
         email,
         msg,
       });
-      //validation success
+  
       if (res.data.success) {
         toast.success(res.data.message);
         setname("");
@@ -33,9 +36,11 @@ const Contact = () => {
         toast.error(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      toast.error("Something went wrong!");
     }
   };
+  
 
   return (
     <>
@@ -90,9 +95,9 @@ const Contact = () => {
                     <div className="row px-3">
                       <input
                         type="email"
-                        name="email"
                         placeholder="Enter Your Email Address"
                         className="mb-3 rounded"
+                        name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
@@ -100,9 +105,9 @@ const Contact = () => {
                     <div className="row px-3">
                       <textarea
                         type="text"
-                        name="msg"
                         placeholder="Write your message"
                         className="mb-3 rounded"
+                        name="msg"
                         value={msg}
                         onChange={(e) => setMsg(e.target.value)}
                       />

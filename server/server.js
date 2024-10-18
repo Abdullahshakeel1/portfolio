@@ -10,7 +10,7 @@ const app = express();
 
 //midlewares
 const corsOptions = {
-  origin: ["http://localhost:3000","http://localhost:3001"], // Array of allowed origins
+  origin: ["http://localhost:3000","http://localhost:3001","http://localhost:5174"],
 };
 app.use(cors(corsOptions));
 
