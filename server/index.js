@@ -10,7 +10,7 @@ const app = express();
 
 //midlewares
 const corsOptions = {
-  origin: ["http://localhost:3000","http://localhost:3001","http://localhost:5174"],
+  origin: ["http://localhost:3000","http://localhost:3001","http://localhost:5174","https://3-d-protfolio-gamma.vercel.app"],
 };
 app.use(cors(corsOptions));
 
